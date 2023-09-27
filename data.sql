@@ -5,10 +5,6 @@ VALUES
     ('Pikachu', '2021-01-07', 1, FALSE, 15.04),
     ('Devimon', '2017-05-12', 5, TRUE, 11);
 
-
-ALTER TABLE animals
-    ADD species char(35);
-
 INSERT INTO animals (name, date_of_birth, escape_attempts, neutered, weight_kg)
 VALUES 
     ('Charmander', '2020-02-08', 0, FALSE, -11), 
