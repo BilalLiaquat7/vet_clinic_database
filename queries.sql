@@ -39,6 +39,8 @@ BEGIN;
 UPDATE animals
 SET species = 'unspecified';
 
+SELECT * from animals
+
 ROLLBACK;
 
 SELECT * from animals
@@ -65,6 +67,8 @@ WHERE species IS NULL;
 SELECT * from animals;
 
 COMMIT;
+
+SELECT * from animals
 
 BEGIN;
 DELETE from animals;
@@ -108,3 +112,23 @@ SELECT * from animals;
 Commit;
 
 SELECT * from animals
+
+-- ////Picture 4///
+
+SELECT count(*) from animals;
+
+SELECT count(*) from animals
+WHERE escape_attempts = 0;
+
+SELECT avg(weight_kg) from animals;
+
+SELECT neutered, count(*) as escape_attempts
+FROM animals
+WHERE escape_attempts > 0
+GROUP BY (neutered);
+
+SELECT min(weight_kg), max(weight_kg) from animals;
+
+SELECT avg(escape_attempts) from animals
+WHERE date_of_birth BETWEEN '1990-01-01'
+and  '2000-01-01';
