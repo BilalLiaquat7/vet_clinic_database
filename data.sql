@@ -40,3 +40,38 @@ INSERT INTO species(name)
     VALUES
         ('Digimon'),
         ('Pokemon');
+
+UPDATE animals
+    SET species_id = ( SELECT id from species WHERE name = 'Digimon')
+    WHERE name like '%mon%';
+
+
+UPDATE animals
+    SET species_id = (SELECT id from species WHERE name = 'Pokemon')
+    WHERE name NOT LIKE '%mon%';
+
+-- Sam Smith owns Agumon.
+-- Jennifer Orwell owns Gabumon and Pikachu.
+-- Bob owns Devimon and Plantmon.
+-- Melody Pond owns Charmander, Squirtle, and Blossom.
+-- Dean Winchester owns Angemon and Boarmon.
+
+UPDATE animals
+    SET owner_id = (SELECT id from owners WHERE full_name = 'Sam Smith')
+    WHERE name = 'Agumon';
+
+UPDATE animals
+    SET owner_id = (SELECT id from owners WHERE full_name = 'Jennifer Orwell')
+    WHERE name IN ('Gabumon', 'Pikachu');
+
+UPDATE animals
+    SET owner_id = (SELECT id from owners WHERE full_name = 'Bob')
+    WHERE name IN ('Devimon', 'Plantmon');
+
+UPDATE animals
+    SET owner_id = (SELECT id from owners WHERE full_name = 'Melody Pond')
+    WHERE name IN ('Charmander', 'Squirtle', 'Blossom');
+
+UPDATE animals
+    SET owner_id = (SELECT id from owners WHERE full_name = 'Dean Winchester')
+    WHERE name IN ('Angemon', 'Boarmon');
