@@ -169,7 +169,7 @@ SELECT owners.full_name, count(animals.name)
 from animals
 JOIN species on animals.species_id = species.id
 JOIN owners on animals.owner_id = owners.id
-WHERE owners.full_name = 'Jennifer Orwell'
+WHERE owners.full_name = 'Jennifer Orwell' and species.name = 'Digimon'
 GROUP BY owners.full_name;
 
 -- List all animals owned by Dean Winchester that haven't tried 
